@@ -18,7 +18,7 @@ const upload = multer({
   // Pasta onde os arquivos serão salvos
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, './uploads');
+      cb(null, './public/uploads');
     },
 
     filename: (req, file, cb) => {
@@ -29,7 +29,7 @@ const upload = multer({
 
 function useExpressApp(app) {
   app.use(upload.single('file'));
-  app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
+
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
@@ -37,6 +37,7 @@ function useExpressApp(app) {
     app.use(cors());
     next();
   });
+  app.use('/public', express.static(path.resolve('public')));
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
   app.use(routes);

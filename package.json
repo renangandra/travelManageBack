@@ -4,11 +4,11 @@
   "description": "",
   "main": "./dist/server.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js",
     "test": "NODE_ENV=test jest --detectOpenHandles",
     "test-stress": "NODE_ENV=test jest --stressRuns=24 --detectOpenHandles"
   },
-  "author": "Renan Gandra Goes",
+  "author": "Jhonata Vinicius",
   "license": " GNU GENERAL PUBLIC LICENSE",
   "dependencies": {
     "@babel/cli": "^7.13.14",

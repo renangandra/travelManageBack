@@ -4,13 +4,15 @@ const TravelTips = require("../../../models/TravelTips");
 async function SetTravelTips(req, res) {
   const {
     title,
-    description
+    description,
+    userId
   } = req.body;
 
   try {
     const Travel = new TravelTips({
       title,
-      description
+      description,
+      userId
   });
 
     await Travel.save(Travel);
